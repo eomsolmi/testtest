@@ -1,0 +1,6 @@
+
+request.setCharacterEncoding("utf-8");
+AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(ProductListDao.class);
+ProductInfo pi = (ProductInfo)ctx.getBean(ProductListDao.class).getProductList();
+
+
