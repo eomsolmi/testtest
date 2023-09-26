@@ -22,6 +22,7 @@
 </tr>
 <tr>
 <td><a href="cmpReplyEx2?flidx=4">Component reply 2</a></td>
+<td><a href="cmpReply3?flidx=4">Component reply 3</a></td>
 </tr>
 
 </body>

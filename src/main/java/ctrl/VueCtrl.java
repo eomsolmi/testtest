@@ -124,7 +124,7 @@ public class VueCtrl {
 	public String cmpReplyEx2(HttpServletRequest request) throws Exception {
 		request.setCharacterEncoding("utf-8");
 		int flidx = Integer.parseInt(request.getParameter("flidx"));
-		// int·Î ¹Þ´Â´Ù -> °ªÀÌ ºñ¾îÀÖÀ» °¡´É¼ºÀÌ ¾ø´Ù.
+		// intï¿½ï¿½ ï¿½Þ´Â´ï¿½ -> ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½É¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 
 		List<FreeReply> replyList = vueSvc.getFreeReplyList(flidx);
 
@@ -134,11 +134,11 @@ public class VueCtrl {
 		return "vue/etc/cmpReplyEx2";
 	}
 	@GetMapping("/replyDel")
-	@ResponseBody	// ÀÚ¹Ù °´Ã¼¸¦ http ÀÀ´ä¿ë °´Ã¼·Î º¯È¯ÇÏ¿© Àü¼Û
+	@ResponseBody	// ï¿½Ú¹ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ http ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public String replyDel(HttpServletRequest request) throws Exception {
 		request.setCharacterEncoding("utf-8");
 		int fridx = Integer.parseInt(request.getParameter("fridx"));
-		// int·Î ¹Ù²Ù´Â ÀÌÀ¯ : º¸¾È, »ê¼ú¿¬»ê
+		// intï¿½ï¿½ ï¿½Ù²Ù´ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		int flidx = Integer.parseInt(request.getParameter("flidx"));
 		
 		int result = vueSvc.replyDel(fridx, flidx);
@@ -178,6 +178,14 @@ public class VueCtrl {
 		int result = vueSvc.replyUpdate(fr);
 		
 		return result + "";
+	}
+	@GetMapping("/cmpReply3")
+	public String cmpReply3(HttpServletRequest request) throws Exception {
+		request.setCharacterEncoding("utf-8");
+		int flidx = Integer.parseInt(request.getParameter("flidx"));
+		List<FreeReply> replyList = vueSvc.getFreeReplyList(flidx);
+		request.setAttribute("replyList", replyList);
+		return "vue/etc/cmpReply3";
 	}
 	
 	@GetMapping("/compIndex")
